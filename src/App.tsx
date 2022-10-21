@@ -1,40 +1,50 @@
-import { Chip, Container, Divider, Typography } from '@mui/material';
+import { Container } from '@mui/material';
+import { useState } from 'react';
 import { makeStyles } from 'tss-react/mui';
-import { MUIForm } from './components';
+import { MUIChatList, MUIForm } from './components';
+import { MUIMessageList } from './components/MUIMessage';
+import { ChatItemInterface } from './types/ChatItemInterface';
+import { MessageItemInterface } from './types/MessageItemInterface';
 
 const useStyles = makeStyles()((theme) => ({
-  paper: {
-    marginTop: theme.spacing(5),
+  container: {
+    minHeight: '100vh',
+    display: 'grid',
+    gridTemplateColumns: '1fr 2fr',
+  },
+  wrapper: {
+    marginBottom: theme.spacing(2),
     display: 'flex',
     flexDirection: 'column',
-    alignItems: 'center',
+    alignItems: 'flex-start',
+    justifyContent: 'flex-end',
   },
 }));
 
 export const App = () => {
   const { classes } = useStyles();
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [chatList, setChatList] = useState<ChatItemInterface[]>([
+    { id: '1', chatName: '<VoFront />' },
+    { id: '2', chatName: 'GB_PHP' },
+    { id: '3', chatName: 'VK Мusic BOX Iphone' },
+    { id: '4', chatName: 'Open Source' },
+  ]);
+
+  const [messageList, setMessageList] = useState<MessageItemInterface[]>([]);
+
+  const addNewMessage = (newMessage: MessageItemInterface) => {
+    setMessageList([...messageList, newMessage]);
+  };
+
   return (
-    <Container component="main" maxWidth="xs">
-      <div className={classes.paper}>
-        <Typography component="h1" variant="h5">
-          Lesson 3
-        </Typography>
+    <Container component="main" maxWidth="lg" className={classes.container}>
+      <MUIChatList chatList={chatList} />
+      <div className={classes.wrapper}>
+        <MUIMessageList messageList={messageList} />
 
-        <MUIForm />
-
-        <Divider flexItem={true}>
-          <Chip label="Сообщения" />
-        </Divider>
-
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita
-          laborum illo totam, maxime doloremque optio ipsum voluptates
-          explicabo. Optio ut beatae a, officia ratione distinctio accusamus
-          dolore iusto ducimus voluptatibus expedita neque fugiat vitae
-          similique voluptatum nihil quod sunt? Odio impedit enim harum et
-          consequatur inventore cumque officia voluptatum quod?
-        </p>
+        <MUIForm addNewMessage={addNewMessage} />
       </div>
     </Container>
   );
