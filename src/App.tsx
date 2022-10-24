@@ -7,11 +7,13 @@ export const App = () => {
   const [messageList, setMessageList] = useState<MessageInterface[]>([]);
 
   useEffect(() => {
-    setTimeout(() => {
+    const timer = setTimeout(() => {
       if (messageList[0]?.author) {
         alert(`${messageList[0]?.author} sent a message`);
       }
     }, 1500);
+
+    return () => clearTimeout(timer);
   }, [messageList]);
 
   return (
