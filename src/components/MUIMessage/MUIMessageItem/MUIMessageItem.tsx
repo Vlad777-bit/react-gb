@@ -5,7 +5,7 @@ import {
   ListItemText,
   Typography,
 } from '@mui/material';
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { MUIMessageItemProps } from './MUIMessageItem.props';
 
 export const MUIMessageItem: FC<MUIMessageItemProps> = ({ messageData }) => {

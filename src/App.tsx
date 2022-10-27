@@ -11,9 +11,10 @@ const useStyles = makeStyles()((theme) => ({
     minHeight: '100vh',
     display: 'grid',
     gridTemplateColumns: '1fr 2fr',
+    gap: '15px',
+    padding: '15px',
   },
   wrapper: {
-    marginBottom: theme.spacing(2),
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'flex-start',
