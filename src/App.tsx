@@ -1,24 +1,24 @@
 import { Container } from '@mui/material';
 import { useState } from 'react';
 import { makeStyles } from 'tss-react/mui';
-import { MUIChatList, MUIForm } from './components';
-import { MUIMessageList } from './components/MUIMessage';
+import { MUIChatList, RouteComponent } from './components';
+import { MyHumburger } from './components/Menu/MyHumburger/MyHumburger';
 import { ChatItemInterface } from './types/ChatItemInterface';
-import { MessageItemInterface } from './types/MessageItemInterface';
+import { MyMenu } from './components/Menu';
+import { format } from 'date-fns';
 
 const useStyles = makeStyles()((theme) => ({
   container: {
     minHeight: '100vh',
     display: 'grid',
     gridTemplateColumns: '1fr 2fr',
-    gap: '15px',
     padding: '15px',
   },
-  wrapper: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'flex-start',
-    justifyContent: 'flex-end',
+
+  menu: {
+    position: 'relative',
+    display: 'grid',
+    gridTemplateColumns: '50px 1fr',
   },
 }));
 
@@ -27,26 +27,46 @@ export const App = () => {
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [chatList, setChatList] = useState<ChatItemInterface[]>([
-    { id: '1', chatName: '<VoFront />' },
+    {
+      id: '1',
+      chatName: '<VoFront />',
+      messages: [
+        {
+          id: '1',
+          body: 'Привет всем!',
+          userName: 'Пользователь',
+          createdAt: format(new Date(), 'HH:mm'),
+        },
+        {
+          id: '2',
+          body: 'Hi!',
+          userName: 'Другой пользователь',
+          createdAt: format(new Date(), 'HH:mm'),
+        },
+      ],
+    },
     { id: '2', chatName: 'GB_PHP' },
     { id: '3', chatName: 'VK Мusic BOX Iphone' },
     { id: '4', chatName: 'Open Source' },
   ]);
 
-  const [messageList, setMessageList] = useState<MessageItemInterface[]>([]);
+  const [isOpen, setIsOpen] = useState<boolean>(false);
 
-  const addNewMessage = (newMessage: MessageItemInterface) => {
-    setMessageList([...messageList, newMessage]);
+  const openMenu = () => {
+    setIsOpen((prev) => !prev);
   };
 
   return (
-    <Container component="main" maxWidth="lg" className={classes.container}>
-      <MUIChatList chatList={chatList} />
-      <div className={classes.wrapper}>
-        <MUIMessageList messageList={messageList} />
+    <>
+      <Container component="main" maxWidth="lg" className={classes.container}>
+        <div className={classes.menu}>
+          <MyMenu isOpen={isOpen} />
+          <MyHumburger isOpen={isOpen} setIsOpen={openMenu} />
 
-        <MUIForm addNewMessage={addNewMessage} />
-      </div>
-    </Container>
+          <MUIChatList chatList={chatList} />
+        </div>
+        <RouteComponent />
+      </Container>
+    </>
   );
 };

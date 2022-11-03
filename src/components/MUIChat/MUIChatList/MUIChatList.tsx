@@ -1,5 +1,6 @@
 import { List } from '@mui/material';
 import { FC } from 'react';
+import { Link } from 'react-router-dom';
 import { makeStyles } from 'tss-react/mui';
 import { MUIChatItem } from '../MUIChatItem/MUIChatItem';
 import { MUIChatsListProps } from './MUIChatList.props';
@@ -11,7 +12,7 @@ const useStyles = makeStyles()((theme) => ({
     overflow: 'scroll',
 
     backgroundColor: 'lightgray',
-    borderRadius: '15px',
+    borderRadius: '0px 15px 15px 0px',
     padding: '15px',
   },
 }));
@@ -22,7 +23,9 @@ export const MUIChatList: FC<MUIChatsListProps> = ({ chatList }) => {
   return (
     <List className={classes.userChatList}>
       {chatList.map((chat) => (
-        <MUIChatItem key={chat.id} chatData={chat} />
+        <Link to={`/chats/${chat.id }`} key={chat.id}>
+          <MUIChatItem chatData={chat} />
+        </Link>
       ))}
     </List>
   );

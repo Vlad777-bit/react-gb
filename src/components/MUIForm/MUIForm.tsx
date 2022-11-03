@@ -6,7 +6,7 @@ import {
   OutlinedInput,
   TextField,
 } from '@mui/material';
-import React, { FC, useRef, useState } from 'react';
+import React, { FC, useEffect, useRef, useState } from 'react';
 import { MUIFormProps } from './MUIForm.props';
 import { makeStyles } from 'tss-react/mui';
 import SendIcon from '@mui/icons-material/Send';
@@ -75,6 +75,12 @@ export const MUIForm: FC<MUIFormProps> = ({ addNewMessage }) => {
 
     createNewMessage();
   };
+
+  useEffect(() => {
+    if (userNameRef.current) {
+      userNameRef.current?.focus();
+    }
+  }, []);
 
   return (
     <form className={classes.form} onSubmit={(e) => e.preventDefault()}>
