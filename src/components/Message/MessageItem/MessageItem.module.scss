@@ -1,0 +1,23 @@
+.message {
+  margin: 15px 0;
+  padding: 5px;
+
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+
+  background-color: bisque;
+  border-radius: 5px;
+  padding: 5px;
+
+  span {
+    display: block;
+  }
+}
+
+.body {
+  margin: 15px 0;
+}
