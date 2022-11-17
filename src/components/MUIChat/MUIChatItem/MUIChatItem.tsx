@@ -5,16 +5,23 @@ import {
   ListItemText,
   Typography,
 } from '@mui/material';
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { MUIChatItemProps } from './MUIChatItem.props';
 
 export const MUIChatItem: FC<MUIChatItemProps> = ({ chatData }) => {
-  const { chatName } = chatData;
+  const { chatName, messages } = chatData;
 
-  const msg = 'Всем привет! Как дела?';
+  const trimLongString = (
+    text: string | undefined,
+    lengthStr: number
+  ): string => {
+    if (!text) {
+      return '';
+    }
 
-  const sliceMessage = (msg: string, lengthMsg: number): string => {
-    return msg.length > lengthMsg ? msg.slice(0, lengthMsg).concat('...') : msg;
+    return text.length > lengthStr
+      ? text.slice(0, lengthStr).concat('...')
+      : text;
   };
 
   return (
@@ -32,9 +39,9 @@ export const MUIChatItem: FC<MUIChatItemProps> = ({ chatData }) => {
               variant="body2"
               color="text.primary"
             >
-              Пользователь
+              {trimLongString(messages ? messages?.at(-1)?.userName : '', 10)}
             </Typography>{' '}
-            - {sliceMessage(msg, 12)}
+            {trimLongString(messages ? messages?.at(-1)?.body : '', 12)}
           </>
         }
       />

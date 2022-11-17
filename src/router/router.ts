@@ -1,8 +1,5 @@
 import { FC } from 'react';
-import { Main } from '../pages';
-import { ChatId } from '../pages/ChatId/ChatId';
-import { Chats } from '../pages/Chats/Chats';
-import { Profile } from '../pages/Profile/Profile';
+import { ChatId, Chats, Main, Profile } from '../pages';
 
 interface RouteInterface {
   path: string;

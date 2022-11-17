@@ -1,3 +1,5 @@
+export * from './UI';
+
 export * from './MUIChat';
 export * from './MUIMessage';
 

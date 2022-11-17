@@ -1,5 +1,5 @@
 export interface MessageItemInterface {
-  id: string | number;
+  id: string;
   userName: string;
   body: string;
   createdAt: string;

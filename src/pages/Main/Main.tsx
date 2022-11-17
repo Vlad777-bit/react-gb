@@ -1,6 +1,4 @@
-import { FC, useState } from 'react';
-import { makeStyles } from 'tss-react/mui';
-import { MUIChatList, MUIForm, MUIMessageList } from '../../components';
+import { FC } from 'react';
 import { MainProps } from './Main.props';
 
 export const Main: FC<MainProps> = () => {

@@ -1,7 +1,7 @@
 import { MessageItemInterface } from './MessageItemInterface';
 
 export interface ChatItemInterface {
-  id: string | number;
+  id: string;
   chatName: string;
-  messages?: MessageItemInterface[];
+  messages: MessageItemInterface[];
 }
