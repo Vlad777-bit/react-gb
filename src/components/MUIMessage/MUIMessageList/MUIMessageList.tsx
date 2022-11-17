@@ -19,7 +19,7 @@ export const MUIMessageList: FC<MUIMessageListProps> = ({ messageList }) => {
 
   return (
     <List className={classes.userMessageList}>
-      {messageList.map((msg) => (
+      {messageList?.map((msg) => (
         <MUIMessageItem key={msg.id} messageData={msg} />
       ))}
     </List>
