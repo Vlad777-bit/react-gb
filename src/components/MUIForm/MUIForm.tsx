@@ -54,6 +54,14 @@ export const MUIForm: FC<MUIFormProps> = ({ addNewMessage }) => {
       return;
     }
 
+    // TODO удалить это
+    if (inputValues.userName === 'BOT') {
+      setInputValues({ userName: '', body: '' });
+      userNameRef.current?.focus();
+
+      return;
+    }
+
     addNewMessage(newMessage);
     setInputValues({ userName: '', body: '' });
 
