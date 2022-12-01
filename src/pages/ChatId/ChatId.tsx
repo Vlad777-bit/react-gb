@@ -4,8 +4,8 @@ import { MessageItemInterface } from '../../types/MessageItemInterface';
 import { ChatIdProps } from './ChatId.props';
 import classes from './ChatId.module.scss';
 import { useAppDispatch, useAppSelector } from '../../hooks/useTypedRedux';
-import { addNewMessageToChat } from '../../store/Chats/slice';
 import { useParams } from 'react-router-dom';
+import { addMessageWithReply } from '../../store/Chats/actionCreator';
 
 export const ChatId: FC<ChatIdProps> = () => {
   const { wrapper } = classes;
@@ -15,7 +15,11 @@ export const ChatId: FC<ChatIdProps> = () => {
   const { id: chatId = '' } = useParams();
 
   const addNewMessage = (message: MessageItemInterface) => {
-    dispatch(addNewMessageToChat({ chatId, message }));
+    // TODO вернуть это
+    // dispatch(addNewMessageToChat({ chatId, message }));
+
+    // TODO удалить это
+    dispatch(addMessageWithReply({ chatId, message }));
   };
 
   return (
@@ -23,10 +27,7 @@ export const ChatId: FC<ChatIdProps> = () => {
       {chats.map(
         (chat) =>
           chatId === chat.id && (
-            <MUIMessageList
-              key={chat.id}
-              messageList={chat.messages}
-            />
+            <MUIMessageList key={chat.id} messageList={chat.messages} />
           )
       )}
       <MUIForm addNewMessage={addNewMessage} />
