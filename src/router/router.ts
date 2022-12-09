@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { ChatId, Chats, Main, Profile } from '../pages';
+import { ChatId, Chats, Main, Photos, Profile } from '../pages';
 
 interface RouteInterface {
   path: string;
@@ -11,6 +11,7 @@ export const routes: RouteInterface[] = [
   { path: '/profile', element: Profile },
   { path: '/chats', element: Chats },
   { path: '/chats/:id', element: ChatId },
+  { path: '/photos', element: Photos },
 
   { path: '*', element: Main },
 ];

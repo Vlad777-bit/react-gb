@@ -6,7 +6,7 @@ let timer: NodeJS.Timeout;
 
 export const addMessageWithReply = createAsyncThunk(
   'messages/addMessageWithReply',
-  async (msg: AddMessageToChat, { dispatch }) => {
+  (msg: AddMessageToChat, { dispatch }) => {
     const { chatId, message } = msg;
 
     dispatch(addNewMessageToChat({ chatId, message }));
