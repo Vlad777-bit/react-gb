@@ -1,7 +1,7 @@
 .chats {
   width: 100%;
   max-height: calc(100vh - 30px);
-  overflow: scroll;
+  overflow: auto;
 
   background-color: lightgray;
   border-radius: 0px 15px 15px 0px;

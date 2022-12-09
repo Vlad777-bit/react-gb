@@ -22,6 +22,9 @@ export const MyMenu: FC<MyMenuProps> = ({ isOpen }) => {
         <li className={menu__item}>
           <Link to="/profile">Профиль</Link>
         </li>
+        <li className={menu__item}>
+          <Link to="/photos">Фотографии</Link>
+        </li>
       </ul>
     </div>
   );

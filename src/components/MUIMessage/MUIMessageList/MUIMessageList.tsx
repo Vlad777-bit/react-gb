@@ -8,7 +8,7 @@ const useStyles = makeStyles()((theme) => ({
   userMessageList: {
     width: '100%',
     maxHeight: 'calc(100vh - 175px)',
-    overflow: 'scroll',
+    overflow: 'auto',
 
     padding: '15px',
   },
