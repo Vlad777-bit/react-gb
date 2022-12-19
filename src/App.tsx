@@ -1,9 +1,7 @@
 import { Container } from '@mui/material';
 import { useState } from 'react';
 import { makeStyles } from 'tss-react/mui';
-import { MUIChatList, RouteComponent } from './components';
-import { MyHumburger } from './components/Menu/MyHumburger/MyHumburger';
-import { MyMenu } from './components/Menu';
+import { Menu, MUIChatList, MyHumburger, RouteComponent } from './components';
 
 const useStyles = makeStyles()((theme) => ({
   container: {
@@ -33,7 +31,7 @@ export const App = () => {
     <>
       <Container component="main" maxWidth="lg" className={classes.container}>
         <div className={classes.menu}>
-          <MyMenu isOpen={isOpen} />
+          <Menu isOpen={isOpen} />
           <MyHumburger isOpen={isOpen} setIsOpen={openMenu} />
 
           <MUIChatList />
