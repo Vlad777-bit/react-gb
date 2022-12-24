@@ -5,3 +5,4 @@ export * from './ChatId/ChatId';
 export * from './Photos/Photos';
 
 export * from './SiignIn/SignIn';
+export * from './Register/Register';

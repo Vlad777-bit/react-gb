@@ -2,16 +2,16 @@ import { ChangeEvent, FC, FormEvent, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { auth } from '../../store/Profile/slice';
-import { SignInProps } from './SignIn.props';
-import classes from './SignIn.module.scss';
+import { SignInProps } from './Register.props';
+import classes from './Register.module.scss';
 
-interface SignInState {
+interface RegisterState {
   login: string;
   password: string;
 }
 
-export const SignIn: FC<SignInProps> = () => {
-  const [value, setValue] = useState<SignInState>({
+export const Register: FC<SignInProps> = () => {
+  const [value, setValue] = useState<RegisterState>({
     login: '',
     password: '',
   });
@@ -63,8 +63,7 @@ export const SignIn: FC<SignInProps> = () => {
           />
         </label>
 
-        <Link to="/register">Регистрация</Link>
-        <button type="submit">Войти</button>
+        <button type="submit">Регистрация</button>
       </form>
     </div>
   );

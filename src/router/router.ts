@@ -1,5 +1,13 @@
 import { FC } from 'react';
-import { ChatId, Chats, Main, Photos, Profile, SignIn } from '../pages';
+import {
+  ChatId,
+  Chats,
+  Main,
+  Photos,
+  Profile,
+  Register,
+  SignIn,
+} from '../pages';
 
 interface RouteInterface {
   path: string;
@@ -8,6 +16,7 @@ interface RouteInterface {
 
 export const publicRoutes: RouteInterface[] = [
   { path: '/signin', element: SignIn },
+  { path: '/register', element: Register },
   { path: '*', element: SignIn },
 ];
 

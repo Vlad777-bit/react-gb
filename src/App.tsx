@@ -2,6 +2,7 @@ import { Container } from '@mui/material';
 import { useState } from 'react';
 import { makeStyles } from 'tss-react/mui';
 import { Menu, MUIChatList, MyHumburger, RouteComponent } from './components';
+import { useAppSelector } from './hooks/useTypedRedux';
 
 const useStyles = makeStyles()((theme) => ({
   container: {
@@ -21,13 +22,14 @@ const useStyles = makeStyles()((theme) => ({
 export const App = () => {
   const { classes } = useStyles();
 
-  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const { isAuth } = useAppSelector((state) => state.profileReducer);
 
   const openMenu = () => {
     setIsOpen((prev) => !prev);
   };
 
-  return (
+  return isAuth ? (
     <>
       <Container component="main" maxWidth="lg" className={classes.container}>
         <div className={classes.menu}>
@@ -39,5 +41,7 @@ export const App = () => {
         <RouteComponent />
       </Container>
     </>
+  ) : (
+    <RouteComponent />
   );
 };
