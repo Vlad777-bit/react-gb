@@ -1,10 +1,10 @@
 import { FC } from 'react';
-import { MyMenuProps } from './MyMenu.props';
-import classes from './MyMenu.module.scss';
+import { MenuProps } from './Menu.props';
+import classes from './Menu.module.scss';
 import cn from 'classnames';
 import { Link } from 'react-router-dom';
 
-export const MyMenu: FC<MyMenuProps> = ({ isOpen }) => {
+export const Menu: FC<MenuProps> = ({ isOpen }) => {
   const { menu, menu__list, menu__item, active } = classes;
   return (
     <div
@@ -24,6 +24,9 @@ export const MyMenu: FC<MyMenuProps> = ({ isOpen }) => {
         </li>
         <li className={menu__item}>
           <Link to="/photos">Фотографии</Link>
+        </li>
+        <li className={menu__item}>
+          <Link to="/signin">Войти</Link>
         </li>
       </ul>
     </div>

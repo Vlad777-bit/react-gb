@@ -1,4 +1,5 @@
 export * from './UI';
+export * from './Layout';
 
 export * from './MUIChat';
 export * from './MUIMessage';

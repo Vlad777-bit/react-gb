@@ -50,4 +50,23 @@ export const MUIChatList: FC<MUIChatsListProps> = () => {
       </div>
     </List>
   );
+
+  // return (
+  //   <List className={chats}>
+  //     {chatList.map((chat) => (
+  //       <Link to={`/chats/${chat.id}`} key={chat.id} className={chats__link}>
+  //         <MUIChatItem chatData={chat} />
+  //         <CustomButton onClick={() => handleRemoveChat(chat.id)}>
+  //           X
+  //         </CustomButton>
+  //       </Link>
+  //     ))}
+
+  //     <div className={chats__buttons}>
+  //       <CustomButton className={chats__button} onClick={handleAddNewChat}>
+  //         Создать чат
+  //       </CustomButton>
+  //     </div>
+  //   </List>
+  // );
 };
